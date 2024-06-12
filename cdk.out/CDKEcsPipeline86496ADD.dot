@@ -1,0 +1,59 @@
+digraph G {
+  # Arrows represent an "unlocks" relationship (opposite of dependency). So chosen
+  # because the layout looks more natural that way.
+  # To represent subgraph dependencies, subgraphs are represented by BEGIN/END nodes.
+  # To render: `dot -Tsvg CDKEcsPipeline86496ADD.dot > graph.svg`, open in a browser.
+  node [shape="box"];
+"BEGIN Build" [shape="cds", style="filled", fillcolor="#b7deff"];
+"END Build" [shape="cds", style="filled", fillcolor="#b7deff"];
+"Build.Synth";
+"Source.frfavoreto/EcsPipeline" -> "Build.Synth";
+"BEGIN Build" -> "Build.Synth";
+"Build.Synth" -> "END Build";
+"BEGIN Assets" [shape="cds", style="filled", fillcolor="#b7deff"];
+"END Assets" [shape="cds", style="filled", fillcolor="#b7deff"];
+"Assets.FileAsset1";
+"Build.Synth" -> "Assets.FileAsset1";
+"Assets.FileAsset2";
+"Build.Synth" -> "Assets.FileAsset2";
+"BEGIN Assets" -> "Assets.FileAsset1";
+"BEGIN Assets" -> "Assets.FileAsset2";
+"Assets.FileAsset1" -> "END Assets";
+"Assets.FileAsset2" -> "END Assets";
+"BEGIN testEcsDeployment" [shape="cds", style="filled", fillcolor="#b7deff"];
+"END testEcsDeployment" [shape="cds", style="filled", fillcolor="#b7deff"];
+"Build.Synth" -> "BEGIN testEcsDeployment";
+"BEGIN testEcsDeployment.ECSstack" [shape="cds", style="filled", fillcolor="#b7deff"];
+"END testEcsDeployment.ECSstack" [shape="cds", style="filled", fillcolor="#b7deff"];
+"testEcsDeployment.ECSstack.Deploy";
+"testEcsDeployment.ECSstack.Prepare" -> "testEcsDeployment.ECSstack.Deploy";
+"testEcsDeployment.ECSstack.Prepare";
+"Build.Synth" -> "testEcsDeployment.ECSstack.Prepare";
+"Assets.FileAsset1" -> "testEcsDeployment.ECSstack.Prepare";
+"Assets.FileAsset2" -> "testEcsDeployment.ECSstack.Prepare";
+"BEGIN testEcsDeployment.ECSstack" -> "testEcsDeployment.ECSstack.Prepare";
+"testEcsDeployment.ECSstack.Deploy" -> "END testEcsDeployment.ECSstack";
+"BEGIN testEcsDeployment" -> "BEGIN testEcsDeployment.ECSstack";
+"END testEcsDeployment.ECSstack" -> "END testEcsDeployment";
+"BEGIN prodEcsDeployment" [shape="cds", style="filled", fillcolor="#b7deff"];
+"END prodEcsDeployment" [shape="cds", style="filled", fillcolor="#b7deff"];
+"Build.Synth" -> "BEGIN prodEcsDeployment";
+"END testEcsDeployment" -> "BEGIN prodEcsDeployment";
+"BEGIN prodEcsDeployment.ECSstack" [shape="cds", style="filled", fillcolor="#b7deff"];
+"END prodEcsDeployment.ECSstack" [shape="cds", style="filled", fillcolor="#b7deff"];
+"prodEcsDeployment.ECSstack.Deploy";
+"prodEcsDeployment.ECSstack.Prepare" -> "prodEcsDeployment.ECSstack.Deploy";
+"prodEcsDeployment.ECSstack.Prepare";
+"Build.Synth" -> "prodEcsDeployment.ECSstack.Prepare";
+"Assets.FileAsset1" -> "prodEcsDeployment.ECSstack.Prepare";
+"Assets.FileAsset2" -> "prodEcsDeployment.ECSstack.Prepare";
+"BEGIN prodEcsDeployment.ECSstack" -> "prodEcsDeployment.ECSstack.Prepare";
+"prodEcsDeployment.ECSstack.Deploy" -> "END prodEcsDeployment.ECSstack";
+"BEGIN prodEcsDeployment" -> "BEGIN prodEcsDeployment.ECSstack";
+"END prodEcsDeployment.ECSstack" -> "END prodEcsDeployment";
+"BEGIN Source" [shape="cds", style="filled", fillcolor="#b7deff"];
+"END Source" [shape="cds", style="filled", fillcolor="#b7deff"];
+"Source.frfavoreto/EcsPipeline";
+"BEGIN Source" -> "Source.frfavoreto/EcsPipeline";
+"Source.frfavoreto/EcsPipeline" -> "END Source";
+}

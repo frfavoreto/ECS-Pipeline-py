@@ -1,0 +1,181 @@
+{
+  "version": "36.0.0",
+  "artifacts": {
+    "assembly-CDKEcsPipeline-testEcsDeployment": {
+      "type": "cdk:cloud-assembly",
+      "properties": {
+        "directoryName": "assembly-CDKEcsPipeline-testEcsDeployment",
+        "displayName": "CDKEcsPipeline/testEcsDeployment"
+      }
+    },
+    "assembly-CDKEcsPipeline-prodEcsDeployment": {
+      "type": "cdk:cloud-assembly",
+      "properties": {
+        "directoryName": "assembly-CDKEcsPipeline-prodEcsDeployment",
+        "displayName": "CDKEcsPipeline/prodEcsDeployment"
+      }
+    },
+    "CDKEcsPipeline.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "CDKEcsPipeline.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "CDKEcsPipeline": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://879316307891/eu-west-1",
+      "properties": {
+        "templateFile": "CDKEcsPipeline.template.json",
+        "terminationProtection": false,
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::879316307891:role/cdk-hnb659fds-deploy-role-879316307891-eu-west-1",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::879316307891:role/cdk-hnb659fds-cfn-exec-role-879316307891-eu-west-1",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-879316307891-eu-west-1/9addcdd0077a11cae9b8ad267529534646ef5b721cbb27273f974a64ea333de6.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "CDKEcsPipeline.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::879316307891:role/cdk-hnb659fds-lookup-role-879316307891-eu-west-1",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "CDKEcsPipeline.assets"
+      ],
+      "metadata": {
+        "/CDKEcsPipeline/Pipeline/Pipeline/ArtifactsBucketEncryptionKey/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PipelineArtifactsBucketEncryptionKeyF5BF0670"
+          }
+        ],
+        "/CDKEcsPipeline/Pipeline/Pipeline/ArtifactsBucketEncryptionKeyAlias/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PipelineArtifactsBucketEncryptionKeyAlias94A07392"
+          }
+        ],
+        "/CDKEcsPipeline/Pipeline/Pipeline/ArtifactsBucket/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PipelineArtifactsBucketAEA9A052"
+          }
+        ],
+        "/CDKEcsPipeline/Pipeline/Pipeline/ArtifactsBucket/Policy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PipelineArtifactsBucketPolicyF53CCC52"
+          }
+        ],
+        "/CDKEcsPipeline/Pipeline/Pipeline/Role/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PipelineRoleB27FAA37"
+          }
+        ],
+        "/CDKEcsPipeline/Pipeline/Pipeline/Role/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PipelineRoleDefaultPolicy7BDC1ABB"
+          }
+        ],
+        "/CDKEcsPipeline/Pipeline/Pipeline/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Pipeline9850B417"
+          }
+        ],
+        "/CDKEcsPipeline/Pipeline/Pipeline/Source/frfavoreto_EcsPipeline/WebhookResource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PipelineSourcefrfavoretoEcsPipelineWebhookResource21B7B943"
+          }
+        ],
+        "/CDKEcsPipeline/Pipeline/Pipeline/Build/Synth/CdkBuildProject/Role/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PipelineBuildSynthCdkBuildProjectRole231EEA2A"
+          }
+        ],
+        "/CDKEcsPipeline/Pipeline/Pipeline/Build/Synth/CdkBuildProject/Role/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PipelineBuildSynthCdkBuildProjectRoleDefaultPolicyFB6C941C"
+          }
+        ],
+        "/CDKEcsPipeline/Pipeline/Pipeline/Build/Synth/CdkBuildProject/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PipelineBuildSynthCdkBuildProject6BEFA8E6"
+          }
+        ],
+        "/CDKEcsPipeline/Pipeline/CodeBuildActionRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PipelineCodeBuildActionRole226DB0CB"
+          }
+        ],
+        "/CDKEcsPipeline/Pipeline/CodeBuildActionRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PipelineCodeBuildActionRoleDefaultPolicy1D62A6FE"
+          }
+        ],
+        "/CDKEcsPipeline/Pipeline/Assets/FileRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PipelineAssetsFileRole59943A77"
+          }
+        ],
+        "/CDKEcsPipeline/Pipeline/Assets/FileRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PipelineAssetsFileRoleDefaultPolicy14DB8755"
+          }
+        ],
+        "/CDKEcsPipeline/Pipeline/Assets/FileAsset1/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PipelineAssetsFileAsset185A67CB4"
+          }
+        ],
+        "/CDKEcsPipeline/Pipeline/Assets/FileAsset2/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PipelineAssetsFileAsset24D2D639B"
+          }
+        ],
+        "/CDKEcsPipeline/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/CDKEcsPipeline/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/CDKEcsPipeline/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "CDKEcsPipeline"
+    },
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    }
+  }
+}
