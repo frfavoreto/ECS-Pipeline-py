@@ -1,7 +1,12 @@
 <<<<<<< HEAD
 # ECS-Pipeline-py
-Complete deployment of an ECS application across multiple pipeline stages in multiple accounts
+Complete deployment of an ECS application across multiple pipeline stages in multiple accounts.
+
+To successfully run it you need to change your Test and Prod accounts in the 'ecs_pipeline/accounts.py' file.
 =======
+
+
+
 
 # Welcome to your CDK Python project!
 
