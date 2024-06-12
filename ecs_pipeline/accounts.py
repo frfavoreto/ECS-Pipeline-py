@@ -1,4 +1,4 @@
 envs = {
-    'TEST_ACC': '914808949154',
-    'PROD_ACC': '879316307891'
+    'TEST_ACC': 'YOUR-ACC-HERE',
+    'PROD_ACC': 'YOUR-ACC-HERE'
 }
